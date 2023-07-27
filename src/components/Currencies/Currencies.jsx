@@ -4,9 +4,27 @@ import PropTypes from 'prop-types';
 import './Currencies.scss';
 
 // Define the functional component 'Currencies' that takes 'currenciesList' as a prop
-const Currencies = ({ currenciesList, handleClick }) => (
+const Currencies = ({
+  currenciesList,
+  handleClick,
+  searchValue,
+  setSearchValue,
+}) => (
   <div className="currencies">
-    <h3 className="currencies-title">Currencies</h3>
+    <div className="currencies-title">
+      <input
+        type="text"
+        className="currencies-search"
+        placeholder="Rechercher"
+        value={searchValue}
+        onChange={(event) => {
+          // console.log(event.target.value);
+
+          // Transmit the new value in App's state
+          setSearchValue(event.target.value);
+        }}
+      />
+    </div>
     {/* Iterate over each item in 'currenciesList' and create an 'li' element */}
     <ul>
       {currenciesList.map((item) => (
@@ -34,6 +52,8 @@ Currencies.propTypes = {
     })
   ).isRequired,
   handleClick: PropTypes.func.isRequired,
+  searchValue: PropTypes.string.isRequired,
+  setSearchValue: PropTypes.func.isRequired,
 };
 
 export default Currencies;
