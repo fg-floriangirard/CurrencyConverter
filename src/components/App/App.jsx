@@ -1,5 +1,6 @@
 import Header from '../Header/Header';
 import Currencies from '../Currencies/Currencies';
+import Amount from '../Amount/Amount';
 
 import './App.scss';
 
@@ -8,7 +9,7 @@ function App() {
     <div className="App">
       <Header />
       <Currencies />
-      <div>Amount</div>
+      <Amount />
     </div>
   );
 }
